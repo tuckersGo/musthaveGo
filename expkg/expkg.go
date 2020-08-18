@@ -27,7 +27,7 @@ type nonexportStruct struct {
 
 // 외부로 공개되는 함수입니다.
 func PrintSample() {
-	fmt.Println("This is Sample")
+	fmt.Println("This is Github expkg Sample")
 }
 
 // 외부로 공개되지 않는 함수입니다.

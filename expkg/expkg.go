@@ -34,3 +34,8 @@ func PrintSample() {
 func nonExportFunc() {
 	fmt.Println("This is not exported")
 }
+
+// 원둘레를 구하는 함수
+func Circumference(radius float64) float64 {
+	return 2 * radius * PI
+}

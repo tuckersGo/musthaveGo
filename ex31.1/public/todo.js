@@ -3,14 +3,14 @@
 $(function() {
     var todoListItem = $('.todo-list');
     var todoListInput = $('.todo-list-input');
+    var inputDate = $('#input-date');
 
     $('.todo-list-add-btn').on("click", function(event) {
         event.preventDefault();
 
         var item = $(this).prevAll('.todo-list-input').val();
-
         if (item) {
-            $.post("/todos", JSON.stringify({name:item}), addItem);
+            $.post("/todos", JSON.stringify({name:item, date:inputDate.val()}), addItem);
             todoListInput.val("");
         }
     });

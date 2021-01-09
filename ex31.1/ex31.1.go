@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"sort"
 	"strconv"
+	"strings"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
@@ -14,16 +16,43 @@ import (
 
 var rd *render.Render
 
+type JsonDate time.Time
+
 type Todo struct {
-	ID        int    `json:"id,omitempty"`
-	Name      string `json:"name"`
-	Completed bool   `json:"completed,omitempty"`
+	ID         int      `json:"id,omitempty"`
+	Name       string   `json:"name"`
+	Completed  bool     `json:"completed,omitempty"`
+	ExpireDate JsonDate `json:"date,omitempty"`
+}
+
+func (j *JsonDate) UnmarshalJSON(b []byte) error {
+	s := strings.Trim(string(b), "\"")
+	if len(s) == 0 {
+		return nil
+	}
+	t, err := time.Parse("2006-01-02", s)
+	if err != nil {
+		return err
+	}
+	*j = JsonDate(t)
+	return nil
+}
+
+func (j JsonDate) MarshalJSON() ([]byte, error) {
+	return json.Marshal(j)
+}
+
+// Maybe a Format function for printing your date
+func (j JsonDate) Format(s string) string {
+	t := time.Time(j)
+	return t.Format(s)
 }
 
 var todoMap map[int]Todo
 var lastID int = 0
 
 func MakeWebHandler() http.Handler {
+	rd = render.New()
 	todoMap = make(map[int]Todo)
 	mux := mux.NewRouter()
 	mux.Handle("/", http.FileServer(http.Dir("public")))
@@ -31,6 +60,10 @@ func MakeWebHandler() http.Handler {
 	mux.HandleFunc("/todos", PostTodoHandler).Methods("POST")
 	mux.HandleFunc("/todos/{id:[0-9]+}", RemoveTodoHandler).Methods("DELETE")
 	mux.HandleFunc("/todos/{id:[0-9]+}", UpdateTodoHandler).Methods("POST")
+
+	// test data
+	todoMap[0] = Todo{ID: 0, Name: "aaa", Completed: false}
+	lastID++
 	return mux
 }
 
@@ -109,7 +142,6 @@ func UpdateTodoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	rd = render.New()
 	m := MakeWebHandler()
 	n := negroni.Classic()
 	n.UseHandler(m)

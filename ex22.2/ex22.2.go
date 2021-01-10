@@ -1,0 +1,40 @@
+//ex22.2/ex22.2.go
+package main
+
+import (
+	"container/list"
+	"fmt"
+)
+
+type Queue struct { // ❶ Queue 구조체 정의
+	l *list.List
+}
+
+func (q *Queue) Push(val interface{}) { // ❷ 항목 추가
+	q.l.PushBack(val)
+}
+
+func (q *Queue) Pop() interface{} { // ❸ 항목을 반환하면서 삭제
+	front := q.l.Front()
+	if front != nil {
+		return q.l.Remove(front)
+	}
+	return nil
+}
+
+func NewQueue() *Queue {
+	return &Queue{list.New()}
+}
+
+func main() {
+	queue := NewQueue() // ❹ 새로운 큐 생성
+
+	for i := 1; i < 5; i++ { // ➎ 항목 입력
+		queue.Push(i)
+	}
+	v := queue.Pop()
+	for v != nil { // ➏ 항목 출력
+		fmt.Printf("%v -> ", v)
+		v = queue.Pop()
+	}
+}

@@ -12,7 +12,7 @@ var wg sync.WaitGroup
 
 func main() {
 	wg.Add(1)
-	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second) // ❶ 컨텍스트 생성
+	ctx, cancel := context.WithCancel(context.Background()) // ❶ 컨텍스트 생성
 	go PrintEverySecond(ctx)
 	time.Sleep(5 * time.Second)
 	cancel() // ❷ 취소

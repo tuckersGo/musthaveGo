@@ -8,9 +8,10 @@ func printNo(n int) {
 		return
 	}
 	fmt.Println(n)
-	printNo(n - 1) // ❷ 재귀 호출
+	printNo(n - 1)          // ❷ 재귀 호출
+	fmt.Println("After", n) // ❸ 재귀 호출 이후 출력
 }
 
 func main() {
-	printNo(3) // ❸ 함수 호출
+	printNo(3) // ❹ 함수 호출
 }

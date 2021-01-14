@@ -30,5 +30,4 @@ func main() {
 	PrintColor(Red, "Prints text in red.")
 	PrintColor(Blue, "Prints text in blue.")
 	PrintColor(Green, "Prints text in green.")
-	PrintColor(5, "Prints text in no color.")
 }

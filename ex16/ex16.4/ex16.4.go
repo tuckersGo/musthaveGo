@@ -1,9 +1,8 @@
-//ex16.4/ex16.4.go
+//ex16/ex16.4/ex16.4.go
 package main
 
 import (
 	"fmt"
-	"tucker/customPkg" // ❶ customPkg 패키지 임포트
 )
 
 func main() {

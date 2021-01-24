@@ -1,4 +1,4 @@
-//ex18.1/ex18.1.go
+//ex18/ex18.1/ex18.1.go
 package main
 
 import "fmt"

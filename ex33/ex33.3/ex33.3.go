@@ -1,4 +1,4 @@
-//ex33.3//ex33.3.go
+//ex33/ex33.3//ex33.3.go
 package main
 
 import (

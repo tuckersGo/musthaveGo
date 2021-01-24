@@ -1,4 +1,4 @@
-//ex20.6/ex20.6.go
+//ex20/ex20.6/ex20.6.go
 package main
 
 type Attacker interface {

@@ -1,4 +1,4 @@
-//ex30.1/ex30.1.go
+//ex30/ex30.1/ex30.1.go
 package main
 
 import (

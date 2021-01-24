@@ -1,4 +1,4 @@
-//ex16.2/ex16.2.go
+//ex16/ex16.2/ex16.2.go
 package main
 
 import (

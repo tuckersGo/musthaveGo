@@ -1,4 +1,4 @@
-//ex22.4/ex22.4.go
+//ex22/ex22.4/ex22.4.go
 package main
 
 import (

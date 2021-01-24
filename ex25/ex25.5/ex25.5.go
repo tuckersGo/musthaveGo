@@ -1,4 +1,4 @@
-//ex25.5/ex25.5.go
+//ex25/ex25.5/ex25.5.go
 package main
 
 import (

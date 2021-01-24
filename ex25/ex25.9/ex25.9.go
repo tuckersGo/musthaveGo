@@ -1,4 +1,4 @@
-//ex25.9/ex25.9.go
+//ex25/ex25.9/ex25.9.go
 package main
 
 import (

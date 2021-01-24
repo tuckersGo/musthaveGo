@@ -1,4 +1,4 @@
-//ex20.8/ex20.8.go
+//ex20/ex20.8/ex20.8.go
 package main
 
 type Stringer interface {

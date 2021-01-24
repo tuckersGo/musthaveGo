@@ -1,4 +1,4 @@
-//ex28.2/ex28.2.go
+//ex28/ex28.2/ex28.2.go
 package main
 
 import "fmt"

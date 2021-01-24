@@ -1,4 +1,4 @@
-//ex33.1//ex33.1.go
+//ex33/ex33.1//ex33.1.go
 package main
 
 import "fmt"

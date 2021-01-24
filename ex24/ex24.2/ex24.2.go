@@ -1,4 +1,4 @@
-//24.2/24.2.go
+//ex24/ex24.2/ex24.2.go
 package main
 
 import (

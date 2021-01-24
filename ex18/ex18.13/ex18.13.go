@@ -1,4 +1,4 @@
-//ex18.13/ex18.13.go
+//ex18/ex18.13/ex18.13.go
 package main
 
 import (

@@ -1,4 +1,4 @@
-//ex16.3/ex16.3.go
+//ex16/ex16.3/ex16.3.go
 package main
 
 import (

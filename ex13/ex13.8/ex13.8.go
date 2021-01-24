@@ -1,4 +1,4 @@
-//ex13.8/ex13.8.go
+//ex13/ex13.8/ex13.8.go
 package main
 
 import (

@@ -1,4 +1,4 @@
-//ex22.3/ex22.3.go
+//ex22/ex22.3/ex22.3.go
 package main
 
 import (
@@ -7,7 +7,7 @@ import (
 )
 
 type Stack struct {
-	l *list.List
+	v *list.List
 }
 
 func NewStack() *Stack {
@@ -15,13 +15,13 @@ func NewStack() *Stack {
 }
 
 func (s *Stack) Push(val interface{}) {
-	s.l.PushBack(val) // ❶ 맨 뒤에 요소 추가
+	s.v.PushBack(val) // ❶ 맨 뒤에 요소 추가
 }
 
 func (s *Stack) Pop() interface{} {
-	back := s.l.Back() // ❷ 맨 뒤에서 요소를 반환
+	back := s.v.Back() // ❷ 맨 뒤에서 요소를 반환
 	if back != nil {
-		return s.l.Remove(back)
+		return s.v.Remove(back)
 	}
 	return nil
 }

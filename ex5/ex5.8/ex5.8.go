@@ -1,4 +1,4 @@
-//ex5.8/ex5.8.go
+//ex5/ex5.8/ex5.8.go
 package main
 
 import (

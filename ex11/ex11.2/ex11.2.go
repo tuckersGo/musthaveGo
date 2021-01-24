@@ -1,4 +1,4 @@
-//ex11.2/ex11.2.go
+//ex11/ex11.2/ex11.2.go
 package main
 
 import (

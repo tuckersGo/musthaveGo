@@ -1,3 +1,4 @@
+//ex26/ex26.3/ex26.3.go
 package main
 
 import (
@@ -8,11 +9,13 @@ import (
 	"strings"
 )
 
-type LineInfo struct {
+// 찾은 라인 정보
+type LineInfo struct { // ❶
 	lineNo int
 	line   string
 }
 
+// 파일 내 라인 정보
 type FindInfo struct {
 	filename string
 	lines    []LineInfo
@@ -20,14 +23,14 @@ type FindInfo struct {
 
 func main() {
 	if len(os.Args) < 3 { //
-		fmt.Println("2개 이상의 실행인자가 필요합니다. ex) ex26.1 word filepath")
+		fmt.Println("2개 이상의 실행 인수가 필요합니다. ex) ex26.1 word filepath")
 		return
 	}
 
-	word := os.Args[1]
+	word := os.Args[1] // ❷
 	path := os.Args[2]
 
-	findInfos := FindWordInAllFiles(word, path)
+	findInfos := FindWordInAllFiles(word, path) // ❸ 파일 찾기
 	for _, findInfo := range findInfos {
 		fmt.Println(findInfo.filename)
 		fmt.Println("--------------------------------")
@@ -46,13 +49,13 @@ func GetFileList(path string) ([]string, error) {
 func FindWordInAllFiles(word, path string) []FindInfo {
 	findInfos := []FindInfo{}
 
-	filelist, err := GetFileList(path) // 실행인자 가져오기
+	filelist, err := GetFileList(path) // ❶ 파일 리스트 가져오기
 	if err != nil {
 		fmt.Println("파일을 찾을 수 없습니다. err:", err)
 		return findInfos
 	}
 
-	for _, filename := range filelist {
+	for _, filename := range filelist { // ❷ 각 파일별로 검색
 		findInfos = append(findInfos, FindWordInFile(word, filename))
 	}
 	return findInfos
@@ -68,10 +71,10 @@ func FindWordInFile(word, filename string) FindInfo {
 	defer file.Close()
 
 	lineNo := 1
-	scanner := bufio.NewScanner(file)
+	scanner := bufio.NewScanner(file) // ❸ 스캐너를 만듭니다.
 	for scanner.Scan() {
 		line := scanner.Text()
-		if strings.Contains(line, word) {
+		if strings.Contains(line, word) { // ❹ 한 줄씩 읽으면 단어 포함 여부 검색
 			findInfo.lines = append(findInfo.lines, LineInfo{lineNo, line})
 		}
 		lineNo++

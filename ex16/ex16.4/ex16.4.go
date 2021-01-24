@@ -1,15 +1,16 @@
-//ex16/ex16.4/ex16.4.go
+//ex16/ex16/ex16.4/ex16.4.go
 package main
 
 import (
 	"fmt"
+	"tucker/custompkg"
 )
 
 func main() {
-	customPkg.ExportVar = 60         // ❷ customPkg의 ExportVar값 변경
-	fmt.Println(customPkg.ExportVar) // ❸ 공개된 값 출력
-	fmt.Println(customPkg.ExportConst)
+	custompkg.ExportVar = 60         // ❷ customPkg의 ExportVar값 변경
+	fmt.Println(custompkg.ExportVar) // ❸ 공개된 값 출력
+	fmt.Println(custompkg.ExportConst)
 
-	var custom = customPkg.ExportStruct{Name: "Chalie"} // ➍ 공개된 값 변경
-	customPkg.PrintExportStruct(custom)                 // ➎ 공개된 값 출력
+	var custom = custompkg.ExportStruct{Name: "Chalie"} // ➍ 공개된 값 변경
+	custompkg.PrintExportStruct(custom)                 // ➎ 공개된 값 출력
 }

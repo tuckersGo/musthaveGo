@@ -1,4 +1,4 @@
-//ex17.2/ex17.2.go
+//ex17/ex17.2/ex17.2.go
 package main
 
 import (

@@ -1,4 +1,4 @@
-//ex23.3/ex23.3.go
+//ex23/ex23.3/ex23.3.go
 package main
 
 import "fmt"

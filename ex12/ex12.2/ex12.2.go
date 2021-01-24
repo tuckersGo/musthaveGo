@@ -1,4 +1,4 @@
-//ex12.2/ex12.2.go
+//ex12/ex12.2/ex12.2.go
 package main
 
 const Y int = 3 // ❶

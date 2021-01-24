@@ -1,9 +1,10 @@
+//ex33/ex33.6/ex33.6.go
 package main
 
 import (
 	"fmt"
 
-	"github.com/tuckersGo/musthaveGo/ex33.6/bankaccount"
+	"github.com/tuckersGo/musthaveGo/ex33/ex33.6/bankaccount"
 )
 
 func main() {

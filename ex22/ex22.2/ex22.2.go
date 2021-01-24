@@ -1,4 +1,4 @@
-//ex22.2/ex22.2.go
+//ex22/ex22.2/ex22.2.go
 package main
 
 import (
@@ -7,17 +7,17 @@ import (
 )
 
 type Queue struct { // ❶ Queue 구조체 정의
-	l *list.List
+	v *list.List
 }
 
 func (q *Queue) Push(val interface{}) { // ❷ 항목 추가
-	q.l.PushBack(val)
+	q.v.PushBack(val)
 }
 
 func (q *Queue) Pop() interface{} { // ❸ 항목을 반환하면서 삭제
-	front := q.l.Front()
+	front := q.v.Front()
 	if front != nil {
-		return q.l.Remove(front)
+		return q.v.Remove(front)
 	}
 	return nil
 }

@@ -1,4 +1,4 @@
-//ex28.1/ex28_1_test.go
+//ex28/ex28.1/ex28_1_test.go
 package main
 
 import (

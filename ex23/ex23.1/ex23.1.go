@@ -1,4 +1,4 @@
-//ex23.1/ex23.1.go
+//ex23/ex23.1/ex23.1.go
 package main
 
 import (

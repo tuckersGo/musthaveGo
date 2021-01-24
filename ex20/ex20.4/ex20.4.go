@@ -1,4 +1,4 @@
-//ex20.4/ex20.4.go
+//ex20/ex20.4/ex20.4.go
 package main
 
 import (

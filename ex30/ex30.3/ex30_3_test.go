@@ -1,4 +1,4 @@
-//ex30.1/ex30_1_test.go
+//ex30/ex30.3/ex30_3_test.go
 package main
 
 import (

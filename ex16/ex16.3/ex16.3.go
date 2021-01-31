@@ -4,7 +4,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/tuckersGo/musthaveGo/expkg"
+	"github.com/tuckersGo/musthaveGo/ex16/expkg"
 )
 
 func main() {

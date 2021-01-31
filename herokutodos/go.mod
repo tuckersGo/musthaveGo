@@ -1,4 +1,4 @@
-module tuckersWeb/todos
+module github.com/tuckersGo/musthaveGo/herokutodos
 
 go 1.14
 

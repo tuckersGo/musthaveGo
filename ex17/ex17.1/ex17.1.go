@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().UnixNano()) // ❶ 시간값을 랜덤 시드로 설정
 
 	n := rand.Intn(100)
 	fmt.Println(n)

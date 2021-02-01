@@ -17,5 +17,6 @@ func Seed(i int) {
 }
 
 func main() {
+	Seed(1)
 	fmt.Println(Random())
 }

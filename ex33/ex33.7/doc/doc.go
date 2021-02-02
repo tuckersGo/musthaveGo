@@ -1,5 +1,5 @@
-// Package doc 이 패키지는 go doc 예제를 위한 패키지 입니다.
-// go doc 생성법은 https://pkg.go.dev/golang.org/x/tools/cmd/godoc 를 참조하세요
+// Package doc This package is example package for explaining go doc.
+// You can see the detail of go doc with https://pkg.go.dev/golang.org/x/tools/cmd/godoc link.
 package doc
 
 import "fmt"

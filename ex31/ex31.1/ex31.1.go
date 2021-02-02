@@ -7,8 +7,6 @@ import (
 	"net/http"
 	"sort"
 	"strconv"
-	"strings"
-	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
@@ -17,43 +15,16 @@ import (
 
 var rd *render.Render
 
-type JsonDate time.Time
-
-type Todo struct {
-	ID         int      `json:"id,omitempty"`
-	Name       string   `json:"name"`
-	Completed  bool     `json:"completed,omitempty"`
-	ExpireDate JsonDate `json:"date,omitempty"`
-}
-
-func (j *JsonDate) UnmarshalJSON(b []byte) error {
-	s := strings.Trim(string(b), "\"")
-	if len(s) == 0 {
-		return nil
-	}
-	t, err := time.Parse("2006-01-02", s)
-	if err != nil {
-		return err
-	}
-	*j = JsonDate(t)
-	return nil
-}
-
-func (j JsonDate) MarshalJSON() ([]byte, error) {
-	return json.Marshal(j)
-}
-
-// Maybe a Format function for printing your date
-func (j JsonDate) Format(s string) string {
-	t := time.Time(j)
-	return t.Format(s)
+type Todo struct { // ❶ 할 일 정보를 담는 Todo 구조체
+	ID        int    `json:"id,omitempty"` // ❷ json 포맷으로 변환 옵션
+	Name      string `json:"name"`
+	Completed bool   `json:"completed,omitempty"`
 }
 
 var todoMap map[int]Todo
 var lastID int = 0
 
-func MakeWebHandler() http.Handler {
-	rd = render.New()
+func MakeWebHandler() http.Handler { // ❸ 웹 서버 핸들러 생성
 	todoMap = make(map[int]Todo)
 	mux := mux.NewRouter()
 	mux.Handle("/", http.FileServer(http.Dir("public")))
@@ -61,14 +32,10 @@ func MakeWebHandler() http.Handler {
 	mux.HandleFunc("/todos", PostTodoHandler).Methods("POST")
 	mux.HandleFunc("/todos/{id:[0-9]+}", RemoveTodoHandler).Methods("DELETE")
 	mux.HandleFunc("/todos/{id:[0-9]+}", UpdateTodoHandler).Methods("POST")
-
-	// test data
-	todoMap[0] = Todo{ID: 0, Name: "aaa", Completed: false}
-	lastID++
 	return mux
 }
 
-type Todos []Todo
+type Todos []Todo // ❹ ID로 정렬하는 인터페이스
 
 func (t Todos) Len() int {
 	return len(t)
@@ -87,10 +54,8 @@ func GetTodoListHandler(w http.ResponseWriter, r *http.Request) {
 	for _, todo := range todoMap {
 		list = append(list, todo)
 	}
-
 	sort.Sort(list)
-
-	rd.JSON(w, http.StatusOK, list)
+	rd.JSON(w, http.StatusOK, list) // ➎ ID로 정렬하여 전체 목록 반환
 }
 
 func PostTodoHandler(w http.ResponseWriter, r *http.Request) {
@@ -101,7 +66,7 @@ func PostTodoHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	lastID++
+	lastID++ // ➏ 새로운 ID로 등록하고 만든 Todo 반환
 	todo.ID = lastID
 	todoMap[lastID] = todo
 	rd.JSON(w, http.StatusCreated, todo)
@@ -112,7 +77,7 @@ type Success struct {
 }
 
 func RemoveTodoHandler(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
+	vars := mux.Vars(r) // ➐ ID에 해당하는 할 일 삭제
 	id, _ := strconv.Atoi(vars["id"])
 	if _, ok := todoMap[id]; ok {
 		delete(todoMap, id)
@@ -123,7 +88,7 @@ func RemoveTodoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateTodoHandler(w http.ResponseWriter, r *http.Request) {
-	var newTodo Todo
+	var newTodo Todo // ➑ ID에 해당하는 할 일 수정
 	err := json.NewDecoder(r.Body).Decode(&newTodo)
 	if err != nil {
 		log.Fatal(err)
@@ -143,8 +108,9 @@ func UpdateTodoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	rd = render.New()
 	m := MakeWebHandler()
-	n := negroni.Classic()
+	n := negroni.Classic() // ➒ negroni 기본 핸들러로 감싼다
 	n.UseHandler(m)
 
 	log.Println("Started App")

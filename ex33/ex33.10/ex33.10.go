@@ -3,10 +3,8 @@ package main
 /*
 #include <stdlib.h>
 */
-import (
-	"C"
-	"fmt"
-)
+import "C"
+import "fmt"
 
 func Random() int {
 	return int(C.random())

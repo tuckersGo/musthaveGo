@@ -21,6 +21,8 @@ func main() {
 		r = r.Next()
 	}
 
+	fmt.Println() // 한줄 띄우기
+
 	for j := 0; j < n; j++ {
 		fmt.Printf("%c ", r.Value) // ➎ 순하며 값 출력
 		r = r.Prev()

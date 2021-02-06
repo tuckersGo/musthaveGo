@@ -1,3 +1,3 @@
 module github.com/tuckersGo/musthaveGo/ex20/fedex
 
-go 1.15
+go 1.16

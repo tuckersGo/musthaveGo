@@ -39,7 +39,7 @@
             if ($(this).attr('checked')) {
                 complete = false;
             }
-            // ➑ todos/id로 POST 요청 전송
+            // ➑ todos/id로 PUT 요청 전송
             $.ajax({
                 url: "/todos/" + id,
                 type: "PUT",

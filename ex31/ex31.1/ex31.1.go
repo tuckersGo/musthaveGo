@@ -31,7 +31,7 @@ func MakeWebHandler() http.Handler { // ❸ 웹 서버 핸들러 생성
 	mux.HandleFunc("/todos", GetTodoListHandler).Methods("GET")
 	mux.HandleFunc("/todos", PostTodoHandler).Methods("POST")
 	mux.HandleFunc("/todos/{id:[0-9]+}", RemoveTodoHandler).Methods("DELETE")
-	mux.HandleFunc("/todos/{id:[0-9]+}", UpdateTodoHandler).Methods("POST")
+	mux.HandleFunc("/todos/{id:[0-9]+}", UpdateTodoHandler).Methods("PUT")
 	return mux
 }
 

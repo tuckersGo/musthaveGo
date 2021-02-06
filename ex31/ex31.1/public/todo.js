@@ -40,14 +40,19 @@
                 complete = false;
             }
             // ➑ todos/id로 POST 요청 전송
-            $.post("/todos/"+id, JSON.stringify({id:id, name:name, completed:complete}), function(data){
-                if (complete) {
-                    $self.attr('checked', 'checked');
-                } else {
-                    $self.removeAttr('checked');
+            $.ajax({
+                url: "/todos/" + id,
+                type: "PUT",
+                data: JSON.stringify({id:id, name:name, completed:complete}),
+                success: function(data) {
+                    if (complete) {
+                        $self.attr('checked', 'checked');
+                    } else {
+                        $self.removeAttr('checked');
+                    }
+            
+                    $self.closest("li").toggleClass('completed');
                 }
-        
-                $self.closest("li").toggleClass('completed');
             })
         });
     

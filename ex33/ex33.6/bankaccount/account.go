@@ -2,7 +2,7 @@
 package bankaccount
 
 type Account interface {
-	Widthrow(money int) int
+	Withdraw(money int) int
 	Deposit(money int)
 	Balance() int
 }
@@ -15,7 +15,7 @@ type innerAccount struct {
 	balance int
 }
 
-func (a *innerAccount) Widthrow(money int) int {
+func (a *innerAccount) Withdraw(money int) int {
 	a.balance -= money
 	return a.balance
 }

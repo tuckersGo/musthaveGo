@@ -15,5 +15,5 @@ func main() {
 	var a myInt = 10       // myInt 타입 변수
 	fmt.Println(a.add(30)) // ❸ myInt 타입의 add() 메서드 호출
 	var b int = 20
-	fmt.Println(myInt(b).add(50))
+	fmt.Println(myInt(b).add(50)) // ❹ int 타입을 타입변환
 }

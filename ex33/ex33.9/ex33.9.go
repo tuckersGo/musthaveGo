@@ -31,7 +31,7 @@ func (fac *FlyweightFactory) Create() *Flyweight {
 	return obj
 }
 
-func (fac *FlyweightFactory) Dispose(obj *Flyweight) {
+func (fac *FlyweightFactory) Dispose(obj *Flyweight) { // ➎ 반환
 	obj.Dispose()
 	fac.pool = append(fac.pool, obj)
 }

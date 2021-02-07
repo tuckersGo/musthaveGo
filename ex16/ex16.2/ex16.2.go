@@ -2,8 +2,9 @@
 package main
 
 import (
-	"expkg"
 	"fmt"
+
+	"github.com/tuckersGo/musthaveGo/ex16/expkg"
 )
 
 func main() {

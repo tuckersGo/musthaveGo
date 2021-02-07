@@ -21,7 +21,7 @@ func TestPostTodo(t *testing.T) {
 	mux := MakeWebHandler()
 	mux.ServeHTTP(res, req)
 
-	assert.Equal(http.StatusOK, res.Code)
+	assert.Equal(http.StatusCreated, res.Code)
 	data, _ := ioutil.ReadAll(res.Body)
 	log.Println(string(data))
 }

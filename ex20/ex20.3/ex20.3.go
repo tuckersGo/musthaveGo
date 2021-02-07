@@ -2,8 +2,8 @@
 package main
 
 import (
+	"github.com/tuckersGo/musthaveGo/ex20/fedex"
 	"github.com/tuckersGo/musthaveGo/ex20/koreaPost"
-	"github.com/tuckersGo/musthavego/ex20/fedex"
 )
 
 func SendBook(name string, sender *fedex.FedexSender) {

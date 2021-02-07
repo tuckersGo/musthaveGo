@@ -1,3 +1,5 @@
-module github.com/tuckersGo/musthaveGo/ex28/ex28.1
+module musthaveGo/ex28.1
 
 go 1.16
+
+require github.com/stretchr/testify v1.7.0

@@ -2,8 +2,8 @@
 package main
 
 import (
+	"github.com/tuckersGo/musthaveGo/ex20/fedex"
 	"github.com/tuckersGo/musthaveGo/ex20/koreaPost"
-	"github.com/tuckersGo/musthavego/ex20/fedex"
 )
 
 // ❶ Sender 인터페이스를 만들었습니다.

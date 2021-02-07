@@ -4,7 +4,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/tuckersGo/musthaveGo/ex33/ex33.6/bankaccount"
+	"musthaveGo/ex33.6/bankaccount"
 )
 
 func main() {

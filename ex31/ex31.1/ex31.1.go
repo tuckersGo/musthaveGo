@@ -25,6 +25,7 @@ var todoMap map[int]Todo
 var lastID int = 0
 
 func MakeWebHandler() http.Handler { // ❸ 웹 서버 핸들러 생성
+	rd = render.New()
 	todoMap = make(map[int]Todo)
 	mux := mux.NewRouter()
 	mux.Handle("/", http.FileServer(http.Dir("public")))
@@ -108,7 +109,6 @@ func UpdateTodoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	rd = render.New()
 	m := MakeWebHandler()
 	n := negroni.Classic() // ➒ negroni 기본 핸들러로 감싼다
 	n.UseHandler(m)

@@ -10,11 +10,11 @@ type Queue struct { // ❶ Queue 구조체 정의
 	v *list.List
 }
 
-func (q *Queue) Push(val interface{}) { // ❷ 항목 추가
+func (q *Queue) Push(val interface{}) { // ❷ 요소 추가
 	q.v.PushBack(val)
 }
 
-func (q *Queue) Pop() interface{} { // ❸ 항목을 반환하면서 삭제
+func (q *Queue) Pop() interface{} { // ❸ 요소을 반환하면서 삭제
 	front := q.v.Front()
 	if front != nil {
 		return q.v.Remove(front)
@@ -29,11 +29,11 @@ func NewQueue() *Queue {
 func main() {
 	queue := NewQueue() // ❹ 새로운 큐 생성
 
-	for i := 1; i < 5; i++ { // ➎ 항목 입력
+	for i := 1; i < 5; i++ { // ➎ 요소 입력
 		queue.Push(i)
 	}
 	v := queue.Pop()
-	for v != nil { // ➏ 항목 출력
+	for v != nil { // ➏ 요소 출력
 		fmt.Printf("%v -> ", v)
 		v = queue.Pop()
 	}

@@ -7,12 +7,12 @@ import (
 )
 
 func main() {
-	r := ring.New(5) // ❶ 항목이 5개인 링 생성
+	r := ring.New(5) // ❶ 요소이 5개인 링 생성
 
 	n := r.Len() // ❷ 링 개수 반환
 
 	for i := 0; i < n; i++ {
-		r.Value = 'A' + i // ❸ 순회하면 모든 항목에 값 대입
+		r.Value = 'A' + i // ❸ 순회하면 모든 요소에 값 대입
 		r = r.Next()
 	}
 

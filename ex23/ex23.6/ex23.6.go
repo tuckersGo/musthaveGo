@@ -6,8 +6,8 @@ import "fmt"
 func f() {
 	fmt.Println("f() 함수 시작")
 	defer func() { // ❹ 패닉 복구
-		if err := recover(); err != nil {
-			fmt.Println("panic 복구 -", err)
+		if r := recover(); r != nil {
+			fmt.Println("panic 복구 -", r)
 		}
 	}()
 

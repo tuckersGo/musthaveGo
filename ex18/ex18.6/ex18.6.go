@@ -11,13 +11,13 @@ func main() {
 	fmt.Println("slice1:", slice1, len(slice1), cap(slice1))
 	fmt.Println("slice2:", slice2, len(slice2), cap(slice2))
 
-	slice1[1] = 100 // ❷ slice1 요솟값 변경
+	slice1[1] = 100 // ❸ slice1 요솟값 변경
 
 	fmt.Println("After change second element")
 	fmt.Println("slice:", slice1, len(slice1), cap(slice1))
 	fmt.Println("slice2:", slice2, len(slice2), cap(slice2))
 
-	slice1 = append(slice1, 500) // ➎ slice1 요솟값 변경
+	slice1 = append(slice1, 500) // ➍ slice1 요솟값 변경
 
 	fmt.Println("After append 500")
 	fmt.Println("slice1:", slice1, len(slice1), cap(slice1))

@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	r := ring.New(5) // ❶ 요소이 5개인 링 생성
+	r := ring.New(5) // ❶ 요소가 5개인 링 생성
 
 	n := r.Len() // ❷ 링 개수 반환
 
@@ -24,7 +24,7 @@ func main() {
 	fmt.Println() // 한줄 띄우기
 
 	for j := 0; j < n; j++ {
-		fmt.Printf("%c ", r.Value) // ➎ 순하며 값 출력
+		fmt.Printf("%c ", r.Value) // ➎ 순회하며 값 출력
 		r = r.Prev()
 	}
 }

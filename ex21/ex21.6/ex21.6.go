@@ -21,6 +21,6 @@ func main() {
 	defer f.Close()
 
 	writeHello(func(msg string) {
-		fmt.Fprintln(f, msg) // ❶ 외부 스테이트 f 사용
+		fmt.Fprintln(f, msg) // ❶ 함수 리터럴 외부 변수 f 사용
 	})
 }

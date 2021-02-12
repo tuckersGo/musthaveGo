@@ -84,7 +84,7 @@ func RemoveTodoHandler(w http.ResponseWriter, r *http.Request) {
 		delete(todoMap, id)
 		rd.JSON(w, http.StatusOK, Success{true})
 	} else {
-		rd.JSON(w, http.StatusOK, Success{false})
+		rd.JSON(w, http.StatusNotFound, Success{false})
 	}
 }
 

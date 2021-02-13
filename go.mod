@@ -1,3 +1,3 @@
 module github.com/tuckersGo/musthaveGo
 
-go 1.15
+go 1.16

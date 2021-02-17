@@ -53,11 +53,11 @@ func FindWordInAllFiles(word, path string) []FindInfo {
 	recvCnt := 0
 
 	for _, filename := range filelist {
-		go FindWordInFile(word, filename, ch)
+		go FindWordInFile(word, filename, ch) // ❶ 고루틴 실행
 	}
 
 	for findInfo := range ch {
-		findInfos = append(findInfos, findInfo)
+		findInfos = append(findInfos, findInfo) // ❷ 결과 수집
 		recvCnt++
 		if recvCnt == cnt {
 			// all received

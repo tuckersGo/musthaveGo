@@ -22,13 +22,13 @@ func main() {
 	wg.Wait()
 }
 
-func diningProblem(name string, first, second *sync.Mutex, firstname, secondname string) {
+func diningProblem(name string, first, second *sync.Mutex, firstName, secondName string) {
 	for i := 0; i < 100; i++ {
 		fmt.Printf("%s 밥을 먹으려 합니다.\n", name)
 		first.Lock() // ❹ 첫 번째 뮤텍스를 획득 시도
-		fmt.Printf("%s %s 획득\n", name, firstname)
+		fmt.Printf("%s %s 획득\n", name, firstName)
 		second.Lock() // ➎ 두 번째 뮤텍스를 획득 시도
-		fmt.Printf("%s %s 획득\n", name, secondname)
+		fmt.Printf("%s %s 획득\n", name, secondName)
 
 		fmt.Printf("%s 밥을 먹습니다\n", name)
 		time.Sleep(time.Duration(rand.Intn(1000)) * time.Millisecond)

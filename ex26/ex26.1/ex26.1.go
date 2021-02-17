@@ -14,23 +14,25 @@ func main() {
 	}
 
 	word := os.Args[1] // ❷ 실행 인수 가져오기
-	path := os.Args[2]
+	files := os.Args[2:]
 	fmt.Println("찾으려는 단어:", word)
-	PrintAllFiles(path)
+	PrintAllFiles(files)
 }
 
 func GetFileList(path string) ([]string, error) {
 	return filepath.Glob(path)
 }
 
-func PrintAllFiles(path string) {
-	filelist, err := GetFileList(path) // ❸ 파일목록 가져오기
-	if err != nil {
-		fmt.Println("파일을 찾을 수 없습니다. err:", err)
-		return
-	}
-	fmt.Println("찾으려는 파일 리스트")
-	for _, name := range filelist {
-		fmt.Println(name)
+func PrintAllFiles(files []string) {
+	for _, path := range files {
+		filelist, err := GetFileList(path) // ❸ 파일목록 가져오기
+		if err != nil {
+			fmt.Println("파일을 찾을 수 없습니다. err:", err)
+			return
+		}
+		fmt.Println("찾으려는 파일 리스트")
+		for _, name := range filelist {
+			fmt.Println(name)
+		}
 	}
 }

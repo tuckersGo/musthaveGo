@@ -10,7 +10,7 @@ import (
 )
 
 // 찾은 라인 정보
-type LineInfo struct { // ❶
+type LineInfo struct { // ❶ 찾은 결과 정보
 	lineNo int
 	line   string
 }
@@ -22,15 +22,19 @@ type FindInfo struct {
 }
 
 func main() {
-	if len(os.Args) < 3 { //
+	if len(os.Args) < 3 {
 		fmt.Println("2개 이상의 실행 인수가 필요합니다. ex) ex26.1 word filepath")
 		return
 	}
 
-	word := os.Args[1] // ❷
-	path := os.Args[2]
+	word := os.Args[1] // ❷ 찾으려는 단어
+	files := os.Args[2:]
+	findInfos := []FindInfo{}
+	for _, path := range files {
+		// ❸ 파일 찾기
+		findInfos = append(findInfos, FindWordInAllFiles(word, path)...)
+	}
 
-	findInfos := FindWordInAllFiles(word, path) // ❸ 파일 찾기
 	for _, findInfo := range findInfos {
 		fmt.Println(findInfo.filename)
 		fmt.Println("--------------------------------")

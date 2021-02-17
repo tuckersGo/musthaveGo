@@ -26,9 +26,12 @@ func main() {
 	}
 
 	word := os.Args[1]
-	path := os.Args[2]
+	files := os.Args[2:]
+	findInfos := []FindInfo{}
+	for _, path := range files {
+		findInfos = append(findInfos, FindWordInAllFiles(word, path)...)
+	}
 
-	findInfos := FindWordInAllFiles(word, path)
 	for _, findInfo := range findInfos {
 		fmt.Println(findInfo.filename)
 		fmt.Println("--------------------------------")

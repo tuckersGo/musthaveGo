@@ -2,7 +2,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -20,7 +20,7 @@ func TestIndexHandler(t *testing.T) {
 	mux.ServeHTTP(res, req)
 
 	assert.Equal(http.StatusOK, res.Code) // ❸ Code 확인
-	data, _ := ioutil.ReadAll(res.Body)   // ❹ 데이터를 읽어서 확인
+	data, _ := io.ReadAll(res.Body)       // ❹ 데이터를 읽어서 확인
 	assert.Equal("Hello World", string(data))
 }
 
@@ -34,6 +34,6 @@ func TesBarHandler(t *testing.T) {
 	mux.ServeHTTP(res, req)
 
 	assert.Equal(http.StatusOK, res.Code)
-	data, _ := ioutil.ReadAll(res.Body)
+	data, _ := io.ReadAll(res.Body)
 	assert.Equal("Hello Bar", string(data))
 }

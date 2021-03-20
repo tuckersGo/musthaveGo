@@ -26,3 +26,15 @@ func TestFibonacci2(t *testing.T) {
 	assert.Equal(2, fibonacci2(3), "fibonacci2(2) should be 2")
 	assert.Equal(233, fibonacci2(13), "fibonacci2(13) should be 233")
 }
+
+func BenchmarkFibonacci1(b *testing.B) {
+	for i := 0; i < b.N; i++ { // ❶ b.N만큼 반복
+		fibonacci1(20)
+	}
+}
+
+func BenchmarkFibonacci2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fibonacci2(20)
+	}
+}

@@ -1,17 +1,17 @@
 //ex33/ex33.6/bankaccount/account.go
 package bankaccount
 
-type Account interface {
+type Account interface { // ❶ 공개되는 인터페이스
 	Withdraw(money int) int
 	Deposit(money int)
 	Balance() int
 }
 
-func NewAccount() Account {
+func NewAccount() Account { // ❷ 계좌 생성 함수 - 인터페이스 반환
 	return &innerAccount{balance: 1000}
 }
 
-type innerAccount struct {
+type innerAccount struct { // ❸ 공개되지 않는 구조체
 	balance int
 }
 

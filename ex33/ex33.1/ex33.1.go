@@ -12,7 +12,7 @@ func main() {
 	// c = array 는 안된다.
 	c = array[:] // ❷
 
-	b[0] = 1000 // ❸
+	b[0] = 1000
 	c[3] = 500
 
 	fmt.Println("array:", array)

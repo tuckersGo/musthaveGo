@@ -2,7 +2,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"net/http/httptest"
@@ -22,6 +22,6 @@ func TestPostTodo(t *testing.T) {
 	mux.ServeHTTP(res, req)
 
 	assert.Equal(http.StatusCreated, res.Code)
-	data, _ := ioutil.ReadAll(res.Body)
+	data, _ := io.ReadAll(res.Body)
 	log.Println(string(data))
 }

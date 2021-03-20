@@ -6,7 +6,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -104,5 +104,5 @@ func getGoogleUserInfo(code string) ([]byte, error) {
 		return nil, fmt.Errorf("Failed to Get UserInfo %s\n", err.Error())
 	}
 
-	return ioutil.ReadAll(resp.Body)
+	return io.ReadAll(resp.Body)
 }

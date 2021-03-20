@@ -18,6 +18,6 @@ func barHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/bar", barHandler)
+	http.HandleFunc("/bar", barHandler) // ❹ "/bar" 핸들러 등록
 	http.ListenAndServe(":3000", nil)
 }

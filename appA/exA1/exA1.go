@@ -1,4 +1,4 @@
-//appA/ex33.1/ex33.1.go
+//appA/exA1.1/exA1.go
 package main
 
 import (

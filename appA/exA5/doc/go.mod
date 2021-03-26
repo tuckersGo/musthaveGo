@@ -1,4 +1,4 @@
-module musthaveGo/ex33.5/doc
+module musthaveGo/exA5/doc
 
 go 1.16
 

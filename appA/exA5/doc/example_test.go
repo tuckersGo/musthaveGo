@@ -1,4 +1,4 @@
-//appA/ex33.5/doc/example_test.go
+//appA/exA5/doc/example_test.go
 package doc_test
 
 import "fmt"

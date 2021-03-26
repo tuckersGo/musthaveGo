@@ -1,6 +1,6 @@
 // Package doc This package is example package for explaining go doc.
 // You can see the detail of go doc with https://pkg.go.dev/golang.org/x/tools/cmd/godoc link.
-//appA/ex33.5/doc/doc.go
+//appA/exA5/doc/doc.go
 package doc
 
 import "fmt"

@@ -1,4 +1,4 @@
-//appA/ex33.6/ex33.6.go
+//appA/exA6/exA6.go
 package main
 
 import (

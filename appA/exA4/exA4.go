@@ -1,4 +1,4 @@
-//appA/ex33.4/ex33.4.go
+//appA/exA4/exA4.go
 package main
 
 /*

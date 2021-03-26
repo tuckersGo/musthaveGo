@@ -1,10 +1,10 @@
-//appB/ex33.7/ex33.7.go
+//appB/exB1/exB1.go
 package main
 
 import (
 	"fmt"
 
-	"musthaveGo/ex33.6/bankaccount"
+	"musthaveGo/exB1/bankaccount"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-//appB/ex33.10/ex33.10.go
+//appB/exB4/exB4.go
 package main
 
 import "fmt"

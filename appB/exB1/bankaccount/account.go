@@ -1,4 +1,4 @@
-//appB/ex33.7/bankaccount/account.go
+//appB/exB1/bankaccount/account.go
 package bankaccount
 
 type Account interface { // ❶ 공개되는 인터페이스

@@ -1,38 +1,26 @@
 //ch21/ex21.7/ex21.7.go
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
-func CaptureLoop() {
-	f := make([]func(), 3)
-	fmt.Println("CaptureLoop")
-	for i := 0; i < 3; i++ {
-		f[i] = func() {
-			fmt.Println(i)
-		}
-	}
+type Writer func(string)
 
-	for i := 0; i < 3; i++ {
-		f[i]()
-	}
-}
-
-func CaptureLoop2() {
-	f := make([]func(), 3)
-	fmt.Println("CaptureLoop2")
-	for i := 0; i < 3; i++ {
-		v := i
-		f[i] = func() {
-			fmt.Println(v)
-		}
-	}
-
-	for i := 0; i < 3; i++ {
-		f[i]()
-	}
+func writeHello(writer Writer) { // ❷ writer 함수타입 변수 호출
+	writer("Hello World")
 }
 
 func main() {
-	CaptureLoop()
-	CaptureLoop2()
+	f, err := os.Create("test.txt")
+	if err != nil {
+		fmt.Println("Failed to create a file")
+		return
+	}
+	defer f.Close()
+
+	writeHello(func(msg string) {
+		fmt.Fprintln(f, msg) // ❶ 함수 리터럴 외부 변수 f 사용
+	})
 }

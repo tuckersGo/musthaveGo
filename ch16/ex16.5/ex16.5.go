@@ -2,11 +2,12 @@
 package main
 
 import (
-	"ch16/ex16.5/exinit" // ⓬ exinit 패키지 임포트
 	"fmt"
+
+	"github.com/tuckersGo/musthaveGo/ch16/expkg"
 )
 
-func main() { // ⓭ main() 함수
-	fmt.Println("main function")
-	exinit.PrintD()
+func main() {
+	expkg.PrintSample()   // ❶ expkg 패키지 함수 사용
+	fmt.Println(expkg.PI) // ❷ expkg 패키지 상수 사용
 }

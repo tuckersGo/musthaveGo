@@ -1,19 +1,13 @@
-//ch16/ex16.6/ex16.6.go
+//ch16/ex16.5/ex16.5.go
 package main
 
 import (
 	"fmt"
 
-	"ch16/ex16.6/publicpkg"
+	"github.com/tuckersGo/musthaveGo/ch16/expkg"
 )
 
 func main() {
-	fmt.Println("PI:", publicpkg.PI)
-	publicpkg.PublicFunc()
-
-	var myint publicpkg.MyInt = 10
-	fmt.Println("myint:", myint)
-
-	var mystruct = publicpkg.MyStruct{Age: 18}
-	fmt.Println("mystruct:", mystruct)
+	expkg.PrintSample()   // ❶ expkg 패키지 함수 사용
+	fmt.Println(expkg.PI) // ❷ expkg 패키지 상수 사용
 }

@@ -3,6 +3,12 @@
 이 저장소는 골든래빗에서 출간한 책인 [Tucker의 Go 언어 프로그래밍]에 포함된 예제 코드를 제공합니다.
 이 책을 위해 동영상 강의를 제공합니다. 제 개인 유튜브 채널인 [Tucker Programming](https://www.youtube.com/c/TuckerProgramming)에서 볼 수 있습니다.
 
+## 구매 링크
+* 교보 : https://bit.ly/3sQXbDv​
+* 예스24 : https://bit.ly/3rXrRSh​
+* 알라딘 : https://bit.ly/3rONLar
+
+------------
 ![cover.jpg](cover.jpg)
 
 ## 목차

@@ -24,7 +24,7 @@ func TestIndexHandler(t *testing.T) {
 	assert.Equal("Hello World", string(data))
 }
 
-func TesBarHandler(t *testing.T) {
+func TestBarHandler(t *testing.T) {
 	assert := assert.New(t)
 
 	res := httptest.NewRecorder()

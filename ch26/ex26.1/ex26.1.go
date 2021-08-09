@@ -27,7 +27,7 @@ func PrintAllFiles(files []string) {
 	for _, path := range files {
 		filelist, err := GetFileList(path) // ❸ 파일목록 가져오기
 		if err != nil {
-			fmt.Println("파일을 찾을 수 없습니다. err:", err)
+			fmt.Println("파일 경로가 잘못되었습니다. err:", err, "path:", path)
 			return
 		}
 		fmt.Println("찾으려는 파일 리스트")

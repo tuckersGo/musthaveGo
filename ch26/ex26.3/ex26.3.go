@@ -55,7 +55,7 @@ func FindWordInAllFiles(word, path string) []FindInfo {
 
 	filelist, err := GetFileList(path) // ❶ 파일 리스트 가져오기
 	if err != nil {
-		fmt.Println("파일을 찾을 수 없습니다. err:", err)
+		fmt.Println("파일 경로가 잘못되었습니다. err:", err, "path:", path)
 		return findInfos
 	}
 

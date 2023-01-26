@@ -24,7 +24,7 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	r := rand.Intn(100) // ❶ 랜덤값 생성
-	cnt := 10
+	cnt := 1
 	for {
 		fmt.Printf("숫자값을 입력하세요:")
 		n, err := InputIntValue() // ❷ 숫자값 입력

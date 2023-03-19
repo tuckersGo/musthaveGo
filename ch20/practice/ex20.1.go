@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+//Done
 // 인터페이스 Stringer는 메소드 String을 조절 할 수 있다.
 type Stringer interface {
 	String() string

@@ -1,3 +1,4 @@
+// Done
 package main
 
 // 해당 인터페이스는 메소드 String()을 가지고 있다.

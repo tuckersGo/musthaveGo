@@ -1,4 +1,5 @@
 // 빈 인터페이스를 인수로 받는 인터페이스
+// Done
 package main
 
 import "fmt"

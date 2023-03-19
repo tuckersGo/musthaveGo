@@ -1,4 +1,3 @@
-// Done
 package main
 
 import (
